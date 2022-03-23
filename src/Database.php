@@ -123,3 +123,16 @@ function seed($class = 'Database\\Seeders\\DatabaseSeeder')
 {
     return test()->seed(...func_get_args());
 }
+
+/**
+ * Assert the given records reference the same underlying model instance.
+ *
+ * @param Model $model1
+ * @param Model $model2
+ *
+ * @return TestCase
+ */
+function assertSameModel(Model $model1, Model $model2)
+{
+    return test()->assertTrue($model1->is($model2));
+}
